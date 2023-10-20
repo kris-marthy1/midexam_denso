@@ -91,7 +91,7 @@
         <p>* - Required Fields</p>
 
         <label for="prodid"><b>Product ID <span class='text-danger'>*</span></b></label>
-        <input type="text" readonly value="EVNT-DRV-MID-1" id="prodID">
+        <input type="text" readonly value="EVNT-DRIV-MID-1" id="prodID">
 
 
         <label for="prodname"><b>Product Name <span class='text-danger'>*</span></b></label>
@@ -240,7 +240,7 @@
       }
     }
     document.getElementById('tbodyproducts').innerHTML = html;
-    document.getElementById("prodID").value = "EVNT-DRV-MID-" + a
+    document.getElementById("prodID").value = "EVNT-DRIV-MID-" + a
     document.getElementById('foodBev').innerHTML = foodBev;
     document.getElementById('itEquip').innerHTML = itEquip;
     document.getElementById('shoesCloth').innerHTML = shoesCloth;
@@ -262,7 +262,7 @@
         alert("please Enter fields")
         return false;
       }
-      document.getElementById("prodID").value = "EVNT-DRV-MID-" + a
+      document.getElementById("prodID").value = "EVNT-DRIV-MID-" + a
       a += 1
 
       list.push([document.getElementById("prodID").value, document.getElementById("prodName").value, document.getElementById("sellprice").value, document.getElementById("prodcategory").value])
