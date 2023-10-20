@@ -91,7 +91,7 @@
         <p>* - Required Fields</p>
 
         <label for="prodid"><b>Product ID <span class='text-danger'>*</span></b></label>
-        <input type="text" readonly value="EVNT-DRV-1" id="prodID">
+        <input type="text" readonly value="EVNT-DRV-MID-1" id="prodID">
 
 
         <label for="prodname"><b>Product Name <span class='text-danger'>*</span></b></label>
@@ -211,23 +211,23 @@
     html2 = ""
     for (i = 0; i < list.length; i++) {
       if (list[i][3] == document.getElementById("filterCategory").value) {
-        html2 += '<tr><td>' + list[i][0] + '</td> <td>' + list[i][1] + '</td> <td>' + list[i][3] + '</td> <td>' + list[i][2] + '</tr>';
+        html2 += '<tr><td>' + list[i][0] + '</td> <td>' + list[i][1] + '</td> <td>' + list[i][3] + '</td> <td> ₱ ' + list[i][2] + '</tr>';
       }
       if (document.getElementById("filterCategory").value == "See All") {
-        html2 += '<tr><td>' + list[i][0] + '</td> <td>' + list[i][1] + '</td> <td>' + list[i][3] + '</td> <td>' + list[i][2] + '</tr>';
+        html2 += '<tr><td>' + list[i][0] + '</td> <td>' + list[i][1] + '</td> <td>' + list[i][3] + '</td> <td>₱ ' + list[i][2] + '</tr>';
       }
     }
     document.getElementById('tbodyproducts').innerHTML = html2;
 
   }
-  function render(category) {
+  function render() {
     var html = '';
     var foodBev = 0
     var itEquip = 0
     var shoesCloth = 0
     var kitchenApp = 0
     for (i = 0; i < list.length; i++) {
-      html += '<tr><td>' + list[i][0] + '</td> <td>' + list[i][1] + '</td> <td>' + list[i][3] + '</td> <td>' + list[i][2] + '</tr>';
+      html += '<tr><td>' + list[i][0] + '</td> <td>' + list[i][1] + '</td> <td>' + list[i][3] + '</td> <td>₱ ' + list[i][2] + '</tr>';
 
       if (list[i][3] == "Food and Beverage") {
         foodBev += 1
@@ -240,7 +240,7 @@
       }
     }
     document.getElementById('tbodyproducts').innerHTML = html;
-    document.getElementById("prodID").value = "EVNT-DRV-" + a
+    document.getElementById("prodID").value = "EVNT-DRV-MID-" + a
     document.getElementById('foodBev').innerHTML = foodBev;
     document.getElementById('itEquip').innerHTML = itEquip;
     document.getElementById('shoesCloth').innerHTML = shoesCloth;
@@ -249,7 +249,7 @@
     document.getElementById("prodcategory").value = "--Select Category--"
     document.getElementById("sellprice").value = ""
     document.getElementById("prodName").focus();
-    document.getElementById("filterCategory").value = category
+    document.getElementById("filterCategory").value = "See All"
     filtercatChange()
   }
 
@@ -262,11 +262,11 @@
         alert("please Enter fields")
         return false;
       }
-      document.getElementById("prodID").value = "EVNT-DRV-" + a
+      document.getElementById("prodID").value = "EVNT-DRV-MID-" + a
       a += 1
 
       list.push([document.getElementById("prodID").value, document.getElementById("prodName").value, document.getElementById("sellprice").value, document.getElementById("prodcategory").value])
-      render(document.getElementById("prodcategory").value)
+      render()
     } else {
       alert("please Enter fields")
       return false;
